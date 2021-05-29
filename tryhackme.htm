@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        notes-tryhackme
+    </title>
+</head>
+<body>
+    <div id = "networking">
+    <h1>introductury networking</h1>
+    <ol>
+        <li><a href =#osimodel>OSI model</a></li>
+        <li><a href =#encapsulation>Encapsulation</a></li>
+        <li><a href =#tcp/ip>TCP/IP model</a></li>
+        <li><a href =#ping>Networking tools [ping]</a></li>
+        <li><a href =#traceroute>Networking tools [Traceroute]</a></li>
+        <li><a href =#whois>Networking tools [whois]</a></li>
+        <li><a href =#dig>Networking tools [dig]</a></li>
+    </ol>
+    <div id = osimodel>
+    <h2>OSI model</h2>
+    <p>osi consist of 7 layers.</p>
+    <ul>
+        <li>
+            Application
+        </li>
+        <p>
+            It works almost exclusively with applications, providing an interface for them to use in order to transmit data.when data is passed to application layer, it pass that to presentation layer.
+        </p>
+        <li>
+            Presentation
+        </li>
+        <p>
+            the data is recieved from application layer and The presentation layer translates the data into a standardised format, as well as handling any encryption, compression or other transformations to the data and the pass it to session.
+        </p>
+        <li>
+            Session
+        </li>
+        <p>
+            the session layer try to set up a connection between other computer through a network,it send an error msg if it cant. the job of the session layer is to maintain the connection that is established & the data is passed to next layer.
+        </p>
+        <li>
+            transport
+        </li>
+        <p>
+
+        </p>
+        <li>
+            Network
+        </li>
+        <p>
+            The network layer is responsible for locating the destination of your request
+        </p>
+        <li>
+            Data link
+        </li>
+        <p>
+            The data link layer focuses on the physical addressing of the transmission.the job of the data link layer to present the data in a format suitable for transmission.the data link layer check whether the data is corrupted dduring the recieve. 
+        </p>
+        <li>
+            Physical
+        </li>
+        <p>
+            this one is near the hardware of computer.here is where the data which transfer over a network are sent & recieved, the main job of this layer is to convert the binary data of the transmission into signals and transmit them across the network.
+        </p>
+    </ul>
+    </div>
+    <div id = encapsulation>
+    <h2>
+        Encapsulation
+    </h2>
+    <h4>Q & A detailed.</h4>
+    <p>Q. How would you refer to data at layer 2 of the encapsulation process (with the OSI model)?</p>
+    <p>A. frame <br>bcs Data(Frames), thing...</p>
+
+    <p>Q. How would you refer to data at layer 4 of the encapsulation process (with the OSI model), if the UDP protocol has been selected?</p>
+    <p>A. Datagrams <br>bcs if TCP was selected it would be segments and for UDP its Datagrams.</p>
+    <p>Q. What process would a computer perform on a received message?</p>
+    <p>A. De-encapsulation<br>When the message is received by the second computer, it reverses the process — starting at the physical layer and working up until it reaches the application layer, its called De-encapsulation</p>
+    <p>Q. Which is the only layer of the OSI model to add a trailer during encapsulation?</p>
+    <p>A. Datalink<br>The data link layer also adds a piece on at the end of the transmission, which is used to verify that the data has not been corrupted on transmission; this also has the added bonus of increased security, as the data can’t be intercepted and tampered with without breaking the trailer.</p>
+    <p>Q. Does encapsulation provide an extra layer of security (Aye/Nay)?</p>
+    <p>A. AYE (yes)</p>
+    </div>
+
+    <div id = tcp/ip>
+    <h2>TCP/IP model</h2>
+    <p>its similiar to OSI model, it serves as the basis for real-world networking, the TCP/IP model is 4 types - </p>
+    <ul>
+        <li>Application</li>
+        <li>Transport</li>
+        <li>Internet</li>
+        <li>Network interface</li>
+    </ul>
+    <h4>Q & A detailed.</h4>
+    <p>Q. Which model was introduced first, OSI or TCP/IP?</p>
+    <p>A. TCP/IP<br>The TCP/IP model is, in many ways, very similar to the OSI model. It’s a few years older, and serves as the basis for real-world networking</p>
+    <p>Q. Which layer of the TCP/IP model covers the functionality of the Transport layer of the OSI model (Full Name)?</p>
+    <p>A. Transport</p>
+    <p>Q. Which layer of the TCP/IP model covers the functionality of the Session layer of the OSI model (Full Name)?</p>
+    <p>A. Application<br></p>
+    <p>Q. The Network Interface layer of the TCP/IP model covers the functionality of two layers in the OSI model. These layers are Data Link, and?.. (Full Name)?</p>
+    <p>A. Physical</p>
+    <p>Q. Which layer of the TCP/IP model handles the functionality of the OSI network layer?</p>
+    <p>A. Internet</p>
+    <p>Q. What kind of protocol is TCP?</p>
+    <p>A. Connection-based<br>TCP is a connection-based protocol.</p>
+    <p>Q. What is SYN short for?</p>
+    <p>A. Synchronise<br>This request contains something called a SYN (short for synchronise) bit, which essentially makes first contact in starting the connection process.</p>
+    <p>Q. What is the second step of the three way handshake?</p>
+    <p>A. SYN/ACK</p>
+    <p>Q. What is the short name for the "Acknowledgement" segment in the three-way handshake?</p>
+    <p>A. ACK</p>
+    </div>
+
+    <div id = ping>
+    <h2>Networking tools [Ping]</h2>
+    <h3>ping command</h3>
+    <p>The ping command is used when we want to test whether a connection to a remote resource is possible. Usually this will be a website on the internet, but it could also be for a computer on your home network if you want to check if it's configured correctly.</p>
+    <p> The basic syntax for ping is ping -target-<br>eg:- ping google.com</p>
+    <p>which will return if a network connection availablle on google</p>
+    <h4>Q & A detailed</h4>
+    <p>Q. What command would you use to ping the bbc.co.uk website?</p>
+    <p>A. ping bbc.co.uk</p>
+    <p>Q. Ping muirlandoracle.co.uk,
+        What is the IPv4 address?</p>
+    <p>A. 217.160.0.152<br>actually you can see this in the terminal</p>
+    <p>Q. What switch lets you change the interval of sent ping requests?</p>
+    <p>A. -i<br>type ping --help or ping man for all available options.</p>
+    <p>Q. What switch would allow you to restrict requests to IPv4?</p>
+    <p>A. -4<br>This forces the ping command to use IPv4 only but is only necessary if target is a hostname and not an IP address.</p>
+    <p>Q. What switch would give you a more verbose output?</p>
+    <p>A. -v</p>
+    </div>
+    <div id= traceroute>
+    <h2>Networking tools [Traceroute]</h2>
+    <h3>traceroute command</h3>
+    <h4>Q & A detailed</h4>
+    <p>Traceroute can be used to map the path your request takes as it heads to the target machine.in linux to use traceroute type "traceroute -destiation-" and in windows type "tracert"</p>
+    <p>Q. What switch would you use to specify an interface when using Traceroute?</p>
+    <p>A. -i<br>you can see that by listing all the options in traceroute by typing traceroute --help or traceroute man</p>
+    <p>Q. What switch would you use if you wanted to use TCP SYN requests when tracing the route?</p>
+    <p>A. -T<br>same reason as above</p>
+    <p>Q. [Lateral Thinking] Which layer of the TCP/IP model will traceroute run on by default (Windows)?</p>
+    <p>A. Internet<br>Traceroute is IP so it would be layer 3 OSI (Network)</p>
+    </div>
+
+    <div id = whois>
+    <h2>Networking tools [whois]</h2>
+    <h3>whois command</h3>
+    <p>Whois essentially allows you to query who a domain name is registered to,elsewhere you can potentially get a great deal of information from a whois search.</p>
+    <p>use command like this "whois -Domain-"</p>
+    <h4>Q & A detailed</h4>
+    <p>Q. What is the registrant postal code for facebook.com?</p>
+    <p>A. 94025<br>type "whois facebook.com" and you can see all the infos</p>
+    <p>Q. When was the facebook.com domain first registered?</p>
+    <p>A. 29/03/1997</p>
+    <p>Q. Which city is microsoft registrant based in?</p>
+    <p>A. Redmond<br></p>
+    <p>Q. [OSINT] What is the name of the golf course that is near the registrant address for microsoft.com?</p>
+    <p>A. Bellevue Golf Course<br>as in question osint means gather information from all the social medias, here all we did is googled "redmond golf course" and kaboom you got it!!</p>
+    <p>Q. What is the registered Tech Email for microsoft.com?</p>
+    <p>A. msnhst@microsoft.com</p>
+    </div>
+
+    <div id = dig>
+    <h2>Networking tools [dig]</h2>
+    <h3>dig command</h3>
+    <p>The command dig is a tool for querying DNS nameservers for information about host addresses, mail exchanges, nameservers, and related information.The most typical use of dig is to simply query a single host.</p>
+    <p>Dig allows us to manually query recursive DNS servers of our choice for information about domains:.use it like this "dig -domain- @-dns-server-ip-"</p>
+    <h4>Q & A detailed</h4>
+    <p>Q. what is DNS stand for</p>
+    <p>A. Domain Name System</p>
+    <p>Q. What is the first type of DNS server your computer would query when you search for a domain?</p>
+    <p>A. Recursive<br>Assuming the address hasn’t already been found, your computer will then send a request to what’s known as a recursive DNS server. These will automatically be known to the router on your network. Many Internet Service Providers (ISPs) maintain their own recursive servers, but companies such as Google and OpenDNS also control recursive servers</p>
+    <p>Q. What type of DNS server contains records specific to domain extensions (i.e. .com, .co.uk*, etc)*? Use the long version of the name.</p>
+    <p>A. Top-Level Domain<br>These lower level servers are called Top-Level Domain servers. Top-Level Domain (TLD) servers are split up into extensions. So, for example, if you were searching for tryhackme.com your request would be redirected to a TLD server that handled .com domains.</p>
+    <p>Q. Where is the very first place your computer would look to find the IP address of a domain?</p>
+    <p>A. Local cache<br>As mentioned previously, when your computer queries a domain name, it stores the results in its local cache</p>
+    <p>Q. Research] Google runs two public DNS servers. One of them can be queried with the IP 8.8.8.8, what is the IP address of the other one?</p>
+    <p>A. 8.8.4.4<br></p>
+    <p>Q. If a DNS query has a TTL of 24 hours, what number would the dig query show?</p>
+    <p>A. 86400<br></p>
+    </div>
+
+
+    <h1>Linux Fundamentals Part 1</h1>
+    <ol>
+        <li><a href =#command>basic command execution</a></li>
+        <li><a href =#flags>manual flags and pages</a></li>
+        <li><a href =#ls>ls</a></li>
+        <li><a href =#cat>cat</a></li>
+        <li><a href =#touch>touch</a></li>
+        <li><a href = #binary>running a binary</a></li>
+        <li><a href =#shiba1>shiba1</a></li>
+        <li><a href =#su>su</a></li>
+    </ol>
+    <div id = command>
+    <h2>[Section 2: Running Commands] - Basic Command Execution</h2>
+    <p>[echo] is a command line, example if you type echo hello, the hello would be returned!</p>
+    </div>
+    <div id = flags>
+    <h2> [Section 2: Running Commands] - Manual Pages and Flags</h2>
+    <p>in this section we'll learn about <strong>flag command</strong> which have the format -command- -flag- -input-. for listing out all the flags in a command, we use <strong>man command</strong> </p>
+    <p>Q. How would you output hello without a newline</p>
+    <p>A. echo -n hello</p>
+    </div>
+    <div id = ls>
+    <h2>[Section 3: Basic File Operations] - ls</h2>
+    <p>ls is a command that lists information about every file/directory in the directory. Just running the ls command outputs the name of every file in the directory.</p>
+    <p>Q. What flag outputs all entries</p>
+    <p>A. -a</p>
+    <p>Q. What flag outputs things in a "long list" format </p>
+    <p>A. -l</p>
+    </div>
+    <div id = cat>
+    <h2>[Section 3: Basic File Operations] - cat</h2>
+    <p>it outputs the contents of files to the console. For example, given a file called helloworld.txt which contains the data "hello world", cat helloworld.txt would output hello world.</p>
+    <p>it supports --help flag so you dont need to go to man page</p>
+    <p>Q. What flag numbers all output lines?</p>
+    <p>A. -n</p>
+    </div>
+    <div id = touch>
+    <h2>[Section 3: Basic File Operations] - touch</h2>
+    <p>touch is a command which will help us to create files. givan example - touch helloworld.txt, the file named helloworld would be created</p>
+    </div>
+    <div id = binary>
+    <h2> [Section 3: Basic File Operations] - Running A Binary</h2>
+    <p>Q. How would you run a binary called hello using the directory shortcut . ?</p>
+    <p>A. ./hello</p>
+    <p>Q. How would you run a binary called hello in your home directory using the shortcut ~ ?</p>
+    <p>A. ~/hello</p>
+    <p>Q. How would you run a binary called hello in the previous directory using the shortcut .. ?</p>
+    <p>A. ../hello</p>
+    </div>
+    <div id = shiba1>
+    <h2>Binary - Shiba1</h2>
+    <p>Q. challenge!!<br>Once you created the file called noot.txt, run the binary and you'll be given the password for the user shiba2!</p>
+    <p>A. pinguftw<br> created the file using touch function, next we need to run the binary, Execute the binary using the ./ method & kaboom you got the password</p>
+    </div>
+    <div id = su>
+    <h2>su</h2>
+    <p>su is a command that allows you to change the user without lgging out & logging back in.</p>
+    </div>
+
+    <h1>Linux Fundamentals Part 2</h1>
+    <ol>
+        <li><a href =#ssh>SSH</a></li>
+        <li><a href =#&&>"&&" operator</a></li>
+        <li><a href =#&>"&" operator</a></li>
+        <li><a href =#$>"$" operator</a></li>
+        <li><a href =#|>"|" operator</a></li>
+        <li><a href =#;>";" operator</a></li>
+        <li><a hreh =#e>">" operator</a></li>
+        <li><a href =#ee>">>" operator</a></li>
+        <li><a href =#shiba2>Binary shiba2</a></li>
+        <li><a href =#chown>"chown" operator</a></li>
+        <li><a href =#chmod>"chmod" advanced operator</a></li>
+        <li><a href =#rm>"rm" operator</a></li>
+        <li><a href =#mv>"mv" operator</a></li>
+    </ol>
+    <div id = "ssh">
+    <h2>SSH</h2>
+    <p>SSH is also known as a secure shell or secure socket shell.it  is a network protocol that gives users, particularly system administrators, a secure way to access a computer over an unsecured network</p>
+        </div>
+        <div id = "&&">
+    <h2>[Section 4: Linux Operators]: "&&"</h2>
+    <p>"&&" works as and which mans you cann execute the second command after executing the first command. (command1 && command2)</p>
+    <p>note :- the 2nd command works after the first command</p>
+    <div id = "&">
+    <h2> [Section 4: Linux Operators]: "&"</h2>
+    <p>'&' as i understand, this one is used bcs, we can execute the 2nd command by running the first command in the background</p>
+    <p>like type "msfconsole" which will take time to come and we need to execute another command so we will type "msfconsole &" and now we can execute the 2nd command!</p>
+    </div>
+    <div id = "$">
+    <h2>[Section 4: Linux Operators]: "$"</h2>
+    <p>it is used to denote environment variables.it will give special permissions to particular things</p>
+    <p>eg:- type "java" in terminal after you installed java in your system, as you can see the terminal wont understand. now set variable of the java in system environment variablles. after that thing type java and kaboom !!! </p>
+    <p>Environment variables can also be set pretty easily, just running export -varname- = -value- will set that as an env variable in linux.</p>
+    <h4>Q & A detailed</h4>
+    <p>Q. How would you set nootnoot equal to 1111</p>
+    <p>A. export nootoot=1111<br> just like " export -varname-=-value- "</p>
+    <p>Q. What is the value of the home environment variable</p>
+    <p>A. home/shiba2<br> type echo $HOME and you'll get the answer</p>
+    </div>  
+    <div id = "|"> 
+    <h2>[Section 4: Linux Operators]: "|"</h2>
+    <p>we can call it "pipe", its also a special character.this command will allow you to take output of a command and use it as a input of the second command, lol!!</p>
+    <p></p>
+    </div>
+    <div id = ";">
+
+    <h2> [Section 4: Linux Operators] - ";"</h2>
+    <p>";" this command is more like "&&" bt the only diffference is that you dont need to execute the first command to execute the seconfd file.</p>
+    <p>eg:-  dfldsfhfpdsfudy ; echo hello world... the hello world will be printed even after the first command didnt run!</p>
+    </div>
+    <div id = "e">
+    <h2>[Section 4: Linux Operators]: ">"</h2>
+    <p>its more like redirecting, like you redirect java class with the another class. </p>
+    <p>if i type " echo hello world > file " the output hello world won't be printed in console, it just created a file named file where hell world is stored as value</p>
+    <p>be carefull that if you ruhn this command with file already exist, the older file file will be completely erased and replace it with new on you created.</p>
+    <h3>Q & A detailed</h3>
+    <p>Q. How would you output twenty to a file called test</p>
+    <p>A. echo twenty > test <br>The answer of this question can be found in the last screenshot. You just need to edit the command to fit the question. Also note that > will replace a file if the file is already there</p>
+    </div>
+    <div id = "ee">
+    <h2> [Section 4: Linux Operators]: ">>"</h2>
+    <p>luckily we have this operator, this ">>" operator just do the same as ">" this one, but the only difference is it wont erase the file if its already there(exist) </p>
+    </div>
+    <div id = "shiba2">
+    <h2>Binary - shiba2</h2>
+    <p>Q. Challenge!!<br>The binary is checking to see if the environment variable "test1234" exists, and if it's set equal to the current $USER environment variable.</p>
+    <p>A. follow the steps below to get the answer.<br>
+    <ul>
+        <li>step 1 : First we need to set the variable test1234 to the same value as $USER</li>
+        <li>step 2 : type echo test1234=$HOME</li>
+        <li>step 3 : now print the user usig echo $USER</li>
+        <li>step 4 : you can see the user shiba2 printed</li>
+        <li>step 5 : now print the password like this ./shiba2</li>
+        <li>step 6 : you got the answer and the password now login with shiba3</li>
+
+    </ul>
+    </p>
+    </div>
+    <div id = "chown">
+    <h2>[Section 5 - Advanced File Operators]: chown.</h2>
+    <p>by using chown command we can change the goup and user for any file. like if we want to change the owner of shiba2 as well as the group to shiba2, we could use " chown shiba2:shiba2 file ". </p>
+    <p>note: use this with root privilege</p>
+    <h4>Q & A detailed</h4>
+    <p>Q. How would you change the owner of file to paradox</p>
+    <p>A. chown paradox file<br>actually you can see that on last screenshot on the website.</p>
+    <p>Q. What about the owner and the group of file to paradox</p>
+    <p>A. chown paradox:paradox file<br>The answer of the second question can be found in the text after the first screenshot</p>
+    <p>Q. What flag allows you to operate on every file in the directory at once?</p>
+    <p>A. -R<br>type man chown in the terminal and look for the operator</p>
+    </div>
+    <div id = "chmod">
+    <h2>[Section 5: Advanced File Operations]: chmod</h2>
+    <p>main thing about the chmod command is, it set permission to the file control who can rad it</p>
+    <p>like : chmod -permissions- -file-.</p>
+    <p>the permission are set to 3 digit number, first digit for user, 2nd digi for group and third digit controls the controls everyone thats not part of the group or user</p>
+    <p>the image below will make some sense, i guess!</p>
+    <img src = "import.PNG"/>
+    <p>These values are calculated and made me crazy, still idk what's going on. need help!!</p>
+    <img src = "import2.PNG"/>
+
+    <p>Q. What permissions mean the user can read the file, the group can read and write to the file, and no one else can read, write or execute the file?</p>
+    <p>A. 460<br>as we learned 0 is for no rights at all</p>
+    <p>Q. What permissions mean the user can read, write, and execute the file, the group can read, write, and execute the file, and everyone else can read, write, and execute the file.</p>
+    <p>A. 777<br>you can see thaton image i provide above</p>
+    </div>
+
+    <div id = "rm">
+    <h2>[Section 5: Advanced File Operations]: rm</h2>
+    <p>believe me or not this rm comand can literally kill your whole system if not used correctly, see the kid below and try not to laugh</p>
+    <img src = "rm.PNG"/>
+
+    <p>Q. What flag deletes every file in a directory?</p>
+    <p>A. -r<br>type rm man and see the flags</p>
+    <p>Q. How do you suppress all warning prompts</p>
+    <p>A. -f<br>same as above </p>
+    </div>
+
+    <div id = "mv">
+    <h2> [Section 5: Advanced File Operations]: mv</h2>
+    <p>mv allows you to move files from one place to another.</p>
+    <p>syntax of this command is mv -file- -destination-.mv file ~ will move the file to the directory</p>
+    <p>ooooooh i almost forget, actually you can change the file name using mv. like this mv file ~/hello, which made the file name hello.</p>
+
+    <h4>Q & A detailed</h4>
+    <p>Q. How would you move file to /tmp</p>
+    <p>A. mv file /tmp<br>you can see that above</p>
+    </div>
+
+
+
+</body>
+</html>
